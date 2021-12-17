@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import articleService from "../services/articleServices";
+import articleService from "../services/articleservices";
 import Article from "./Article";
 import EditForm from "./EditForm";
 import axiosWithAuth from "../utils/axiosWithAuth";
