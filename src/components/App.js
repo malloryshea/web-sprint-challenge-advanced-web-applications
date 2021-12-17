@@ -1,15 +1,18 @@
-import React from 'react';
+import React from "react";
 import { Route } from "react-router-dom";
-import styled from 'styled-components';
+import PrivateRoute from "./PrivateRoute";
+import styled from "styled-components";
 
-import Header from './Header';
-import BloomHeader from './BloomHeader';
-import Login from './Login';
+import Header from "./Header";
+import BloomHeader from "./BloomHeader";
+import View from "./View";
+import Login from "./Login";
+import Logout from "./Logout";
 
 const App = () => {
   return (
     <AppContainer>
-      <LambdaHeader />
+      <BloomHeader />
       <Header />
       <RouteContainer>
         <PrivateRoute path="/logout">
@@ -30,6 +33,7 @@ const App = () => {
 };
 
 export default App;
+
 
 //Task List
 //1. Create and import PrivateRoute component.
