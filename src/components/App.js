@@ -9,16 +9,25 @@ import Login from './Login';
 const App = () => {
   return (
     <AppContainer>
-      <BloomHeader/>
-      <Header/>
+      <LambdaHeader />
+      <Header />
       <RouteContainer>
+        <PrivateRoute path="/logout">
+          <Logout />
+        </PrivateRoute>
+        <PrivateRoute path="/view">
+          <View />
+        </PrivateRoute>
+        <Route path="/login">
+          <Login />
+        </Route>
         <Route exact path="/">
-          <Login/>
-        </Route>          
+          <Login />
+        </Route>
       </RouteContainer>
     </AppContainer>
-  )
-}
+  );
+};
 
 export default App;
 

@@ -1,18 +1,69 @@
-import React from 'react';
-import styled from 'styled-components';
+import axios from "axios";
+import React, { useState } from "react";
+import styled from "styled-components";
+import { useHistory } from "react-router";
+
+const intialState = {
+  username: "",
+  password: "",
+};
 
 const Login = () => {
-    
-    return(<ComponentContainer>
-        <ModalContainer>
-            <h1>Welcome to Blogger Pro</h1>
-            <h2>Please enter your account information.</h2>
-        </ModalContainer>
-    </ComponentContainer>);
-}
+  const [error, setError] = useState();
+  const [credentials, setCredentials] = useState(intialState);
+  const history = useHistory();
+
+  const handleChange = (e) => {
+    setCredentials({
+      ...credentials,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const login = (e) => {
+    e.preventDefault();
+    axios
+      .post("http://localhost:5000/api/login", credentials)
+      .then((res) => {
+        localStorage.setItem("token", res.data.token);
+        history.push("/view");
+      })
+      .catch((err) => setError(err.response.data.error));
+  };
+
+  return (
+    <ComponentContainer>
+      <ModalContainer>
+        <h1>Welcome to Blogger Pro</h1>
+        <h2>Please enter your account information.</h2>
+        {error && <p id="error">{error}</p>}
+        <FormGroup onSubmit={login}>
+          <Label>
+            Username:
+            <Input
+              id="username"
+              name="username"
+              type="text"
+              onChange={handleChange}
+            />
+          </Label>
+          <Label>
+            Password:
+            <Input
+              id="password"
+              name="password"
+              type="password"
+              onChange={handleChange}
+            />
+          </Label>
+          <Button id="submit">Submit</Button>
+        </FormGroup>
+      </ModalContainer>
+    </ComponentContainer>
+  );
+};
 
 export default Login;
-
 //Task List
 //1. Build login form DOM from scratch, making use of styled components if needed. Make sure the username input has id="username" and the password input as id="password".
 //2. Add in a p tag with the id="error" under the login form for use in error display.
