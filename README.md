@@ -13,9 +13,9 @@ You are not allowed to collaborate during the sprint challenge.
 In this challenge you will create a login page and request a token from the server that you'll use to send all other requests to the server. You will then be able to fetch the article data array, update data, and delete data.
 
 ## Project Setup
-[ ] Run npm install to install your dependencies.
-[ ]  Run npm start to run your frontend and backend code automatically.
-[ ]  Note your backend code will run automatically when your run npm start. There is no need to seperately run a server.js file and no means to test the server through postman or the browser. Feel free to ignore any messages related to MSW or mock service workers.
+[ x] Run npm install to install your dependencies.
+[ x]  Run npm start to run your frontend and backend code automatically.
+[ x]  Note your backend code will run automatically when your run npm start. There is no need to seperately run a server.js file and no means to test the server through postman or the browser. Feel free to ignore any messages related to MSW or mock service workers.
 
 ## Project Instructions
 In this project, you will demonstrate your mastery of these skills by creating **a login page** and **basic CRUD application.** You will implement basic security using **token authentication** and build private routes within the application.
@@ -121,8 +121,16 @@ Be prepared to demonstrate your understanding of this week's concepts by answeri
 
 1. Explain what a token is used for.
 
+A token is used to make security decisions and to store tamper-proof information about some system entity.
+
 2. What steps can you take in your web apps to keep your data secure?
+
+Enforce a Strong Password Policy. Use a Secure Host. Encrypt your Login Pages.
 
 3. Describe how web servers work.
 
+A web server connects to the Internet and supports physical data interchange with other devices connected to the web by way of http reguest .
+
 4. Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
+
+POST maps to Create. PUT can map to both Create and Update depending on the existence of the URI used with the PUT. GET /entity/id will read the particular entity matching the id.
